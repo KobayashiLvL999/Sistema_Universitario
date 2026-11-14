@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Sistema_Escolar/config/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 // Proteção de acesso: verifica se o usuário está logado e é professor
 if (!isset($_SESSION['usuario_logado']) || $_SESSION['usuario_role'] !== 'professor') {

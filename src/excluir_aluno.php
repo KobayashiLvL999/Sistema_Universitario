@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Sistema_Escolar/config/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 // 1. Pega o ID que veio pelo link
 $id = $_GET['id'] ?? null;

@@ -1,6 +1,6 @@
-# Sistema Escolar — Faculdade Vencer
+# Sistema Universitário — Faculdade Vencer
 
-Sistema web de gestão acadêmica desenvolvido em **PHP** com banco de dados **MySQL (PDO)**, voltado para o gerenciamento de cursos, disciplinas, turmas, professores, alunos e boletins (notas e frequência).
+Sistema web de gestão acadêmica universitária desenvolvido em **PHP** com banco de dados **MySQL (PDO)**, voltado para o gerenciamento de cursos de graduação, disciplinas, turmas, professores, alunos e boletins acadêmicos (notas e frequência).
 
 ---
 
@@ -10,10 +10,10 @@ Sistema web de gestão acadêmica desenvolvido em **PHP** com banco de dados **M
 - **Dashboard Geral:** indicadores em tempo real com o total de alunos, professores, cursos, disciplinas e turmas cadastradas.
 - **Gestão de Alunos:** cadastro, listagem, edição e exclusão de alunos vinculados a cursos.
 - **Gestão de Professores:** cadastro, listagem, edição e exclusão de docentes.
-- **Gestão de Cursos:** criação, edição e remoção de cursos ofertados.
+- **Gestão de Cursos:** criação, edição e remoção de cursos ofertados pela faculdade.
 - **Gestão de Disciplinas:** cadastro, atualização e exclusão de disciplinas com carga horária.
 - **Gestão de Turmas:** criação de turmas relacionando disciplina, professor, semestre e turno, além da visualização de alunos matriculados.
-- **Relatórios:** visão consolidada dos registros acadêmicos.
+- **Relatórios:** visão consolidada dos registros acadêmicos da instituição.
 
 ### Painel do Professor (`Professor`)
 - Visualização das turmas sob sua responsabilidade.
@@ -21,7 +21,7 @@ Sistema web de gestão acadêmica desenvolvido em **PHP** com banco de dados **M
 
 ### Portal do Aluno (`Aluno`)
 - Consulta às informações de matrícula e curso.
-- Acompanhamento do boletim escolar (notas, média final, faltas e situação por disciplina).
+- Acompanhamento do boletim acadêmico (notas, média final, faltas e situação por disciplina).
 
 ---
 
@@ -37,7 +37,7 @@ Sistema web de gestão acadêmica desenvolvido em **PHP** com banco de dados **M
 ## Estrutura do Projeto
 
 ```text
-Sistema_Escolar/
+Sistema_Universitario/
 ├── config/
 │   ├── db.php                  # Configuração da conexão PDO com o MySQL
 │   └── db_update.sql           # Script de atualização de tabelas, credenciais e boletim
@@ -57,7 +57,7 @@ Sistema_Escolar/
 
 1. **Clone o repositório** dentro da pasta `htdocs` do seu XAMPP:
    ```bash
-   git clone https://github.com/KobayashiLvL999/Sistema_Escolar.git
+   git clone https://github.com/KobayashiLvL999/Sistema_Universitario.git
    ```
 2. **Inicie os serviços:** abra o painel de controle do **XAMPP** e inicie os módulos **Apache** e **MySQL**.
 3. **Configure o Banco de Dados:**
@@ -66,8 +66,9 @@ Sistema_Escolar/
    - Verifique as credenciais de conexão em [`config/db.php`](config/db.php) (`$host`, `$db`, `$user`, `$pass`).
 4. **Acesse no navegador:**
    ```text
-   http://localhost/Sistema_Escolar/
+   http://localhost/Sistema_Universitario/
    ```
+   *(ou `http://localhost/Sistema_Escolar/` caso mantenha o nome antigo da pasta local)*
 
 ---
 

@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Sistema_Escolar/config/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // 1. Pegamos os dados usando os nomes CORRETOS do formulário

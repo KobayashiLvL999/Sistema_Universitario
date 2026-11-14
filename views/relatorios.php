@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Relatórios - Gestão Escolar</title>
+    <title>Relatórios - Sistema Universitário</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
         /* Estilos específicos para a página de relatórios */
@@ -16,7 +16,7 @@
 <body>
     <nav>
         <div class="nav-container">
-            <h1>Sistema Escolar - Relatórios</h1>
+            <h1>Sistema Universitário - Relatórios</h1>
             <div class="menu">
                 <a href="dashboard.php">Voltar ao Início</a>
                 <a href="../index.php">Sair</a>

@@ -1,12 +1,7 @@
 <?php
 session_start();
 
-// Ajustei para o nome da sua pasta atual no htdocs
-$nome_da_pasta = 'Sistema_Escolar'; 
-
-// Agora que está no htdocs, este caminho será lido corretamente pelo XAMPP
-$root = $_SERVER['DOCUMENT_ROOT'] . '/Sistema_Escolar';
-require_once $root . '/config/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'] ?? '';

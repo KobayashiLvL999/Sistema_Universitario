@@ -1,6 +1,6 @@
 <?php
 // 1. Conecta ao banco de dados usando o caminho do seu notebook
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Sistema_Escolar/config/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // 2. Coleta os dados que vieram do formulário de cadastro
