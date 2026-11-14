@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - Gestão Escolar</title>
-    <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="login-container">
         <h2>Acesso ao Sistema</h2>
-        <form action="views/dashboard.php" method="POST"> <input type="text" name="usuario" placeholder="Usuário (admin)" required>
-            <input type="password" name="senha" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
-        </form>
+        <form action="src/validar_login.php" method="POST"> 
+    <input type="email" name="email" placeholder="Email (admin@vencer.edu.br)" required>
+    <input type="password" name="senha" placeholder="Senha (123456)" required>
+    <button type="submit">Entrar</button>
+    
+    <?php if(isset($_GET['erro'])): ?>
+        <p style="color:red; font-size:14px;">Usuário ou senha inválidos!</p>
+    <?php endif; ?>
+</form>
     </div>
 </body>
 </html>

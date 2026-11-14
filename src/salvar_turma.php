@@ -1,27 +1,35 @@
 <?php
-require_once '../config/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Sistema_Escolar/config/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Pegando os dados que vêm do 'name' do formulário
+    // 1. Pegamos os dados usando os nomes CORRETOS do formulário
     $nome_turma = $_POST['nome_turma'];
-    $ano = $_POST['ano'];
+    $semestre_ano = $_POST['semestre_ano']; // Mudamos de "ano" para "semestre_ano"
+    $id_disciplina = $_POST['id_disciplina'];
+    $id_professor = $_POST['id_professor'];
 
     try {
-        // Prepare o SQL para a sua tabela 'turmas'
-        $sql = "INSERT INTO turmas (nome_turma, ano) VALUES (:nome, :ano)";
+        // 2. O SQL também deve usar o nome da coluna que está no Banco de Dados
+        $sql = "INSERT INTO turmas (nome_turma, semestre_ano, id_disciplina, id_professor) 
+                VALUES (:nome, :semestre, :id_disc, :id_prof)";
+        
         $stmt = $pdo->prepare($sql);
         
         $stmt->execute([
-            ':nome' => $nome_turma,
-            ':ano'  => $ano
+            ':nome'     => $nome_turma,
+            ':semestre' => $semestre_ano,
+            ':id_disc'  => $id_disciplina,
+            ':id_prof'  => $id_professor
         ]);
 
-        // Volta para a página de cadastro com status de sucesso
-        header("Location: ../views/cadastro_turma.php?status=sucesso");
+        // 3. Redireciona de volta para a lista com sucesso
+        header("Location: ../views/lista_turmas.php?sucesso=1");
         exit();
-        
+
     } catch (PDOException $e) {
-        echo "Erro ao salvar turma: " . $e->getMessage();
+        die("Erro ao salvar turma: " . $e->getMessage());
     }
+} else {
+    header("Location: ../views/lista_turmas.php");
+    exit();
 }
-?>

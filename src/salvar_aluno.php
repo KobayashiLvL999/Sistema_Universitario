@@ -1,40 +1,37 @@
 <?php
-// 1. Inclui a conexão com o banco de dados
-require_once '../config/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Sistema_Escolar/config/db.php';
 
-// 2. Verifica se o formulário foi enviado via POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    // 3. Coleta os dados do formulário
-    $nome = $_POST['nome'];
-    $data_nasc = $_POST['data_nasc'];
+    // 1. Recebendo os dados do formulário
+    $nome = $_POST['nome']; 
     $cpf = $_POST['cpf'];
     $email = $_POST['email'];
-    $id_turma = $_POST['id_turma']; // Certifique-se que o <select> no HTML tenha esse name
+    $senha_plana = $_POST['senha'];
+    $id_curso = $_POST['id_curso'];
+    $semestre_atual = $_POST['semestre_atual']; 
+
+    $senha_hash = password_hash($senha_plana, PASSWORD_DEFAULT);
 
     try {
-        // 4. Prepara o comando SQL (usando Prepared Statements para segurança)
-        $sql = "INSERT INTO alunos (nome, data_nascimento, cpf, email, id_turma) 
-                VALUES (:nome, :data_nasc, :cpf, :email, :id_turma)";
+        // 2. SQL corrigido para incluir a coluna semestre_atual, email e senha
+        $sql = "INSERT INTO alunos (nome, cpf, email, senha, id_curso, semestre_atual) 
+                VALUES (:nome, :cpf, :email, :senha, :id_curso, :semestre_atual)";
         
         $stmt = $pdo->prepare($sql);
-
-        // 5. Vincula os valores e executa
+        
+        // 3. Execução com os valores corretos
         $stmt->execute([
             ':nome' => $nome,
-            ':data_nasc' => $data_nasc,
             ':cpf' => $cpf,
             ':email' => $email,
-            ':id_turma' => $id_turma
+            ':senha' => $senha_hash,
+            ':id_curso' => $id_curso,
+            ':semestre_atual' => $semestre_atual
         ]);
 
-        // 6. Redireciona de volta com uma mensagem de sucesso
-        header("Location: ../views/lista_alunos.php?status=sucesso");
+        header("Location: ../views/lista_alunos.php?sucesso=1");
         exit();
-
     } catch (PDOException $e) {
-        // Caso dê erro (ex: CPF duplicado)
-        echo "Erro ao salvar: " . $e->getMessage();
+        die("Erro ao matricular aluno: " . $e->getMessage());
     }
 }
-?>

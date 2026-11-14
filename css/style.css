@@ -1,0 +1,120 @@
+/* ===== Variáveis e Reset ===== */
+:root {
+    --primary: #003366;    /* Azul Marinho da Faculdade */
+    --secondary: #0055a5;  /* Azul mais claro para Hover */
+    --accent: #ff9900;     /* Laranja para botões de ação */
+    --danger: #cc0000;     /* Vermelho para exclusão */
+    --background: #f4f6fa;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    background-color: var(--background); 
+    color: #333; 
+    line-height: 1.6;
+}
+
+/* ===== Header e Navegação (Agora Horizontal) ===== */
+header {
+    background-color: var(--primary);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav { background-color: var(--secondary); }
+
+nav ul {
+    display: flex; /* Alinha os itens lado a lado */
+    list-style: none;
+    padding: 0 20px;
+}
+
+nav ul li { margin-right: 15px; }
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px;
+    display: block;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover { background-color: var(--primary); border-radius: 5px; }
+
+/* ===== Layout Principal ===== */
+main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== Dashboard Cards (Correção Visual) ===== */
+.stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1 1 200px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s;
+    border-bottom: 4px solid var(--secondary);
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.card h3 { color: var(--primary); margin-bottom: 10px; font-size: 18px; }
+
+.card p { font-size: 28px; font-weight: bold; color: #333; margin-bottom: 10px; }
+
+/* ===== Tabelas Estilizadas ===== */
+.list-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table thead { background-color: var(--primary); color: white; }
+
+table th, table td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+
+table tr:nth-child(even) { background-color: #f9f9f9; }
+
+/* ===== Botões de Ação ===== */
+.btn-edit { 
+    background-color: var(--accent) !important; 
+    color: white !important; 
+    padding: 6px 12px; 
+    text-decoration: none; 
+    border-radius: 4px; 
+    font-size: 13px;
+}
+
+.btn-delete { 
+    background-color: var(--danger) !important; 
+    color: white !important; 
+    padding: 6px 12px; 
+    text-decoration: none; 
+    border-radius: 4px; 
+    font-size: 13px;
+}

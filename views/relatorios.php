@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Relatórios - Gestão Escolar</title>
-    <link rel="stylesheet" href="../public/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
         /* Estilos específicos para a página de relatórios */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
